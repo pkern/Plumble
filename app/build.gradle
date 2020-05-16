@@ -54,7 +54,7 @@ android {
     buildToolsVersion "28.0.3"
 
     defaultConfig {
-        minSdkVersion 14
+        minSdkVersion 21
         targetSdkVersion 21
         applicationId "pm.kern.mumbleclient"
         versionCode 73
@@ -69,7 +69,7 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
 
-        debug{
+        debug {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
