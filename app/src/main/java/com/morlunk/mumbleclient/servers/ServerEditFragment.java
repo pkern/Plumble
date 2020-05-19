@@ -31,6 +31,7 @@ import android.widget.TextView;
 
 import com.morlunk.jumble.Constants;
 import com.morlunk.jumble.model.Server;
+import com.morlunk.jumble.util.MumbleURLParser;
 import com.morlunk.mumbleclient.R;
 import com.morlunk.mumbleclient.Settings;
 
@@ -161,7 +162,7 @@ public class ServerEditFragment extends DialogFragment {
         try {
             port = Integer.parseInt((mPortEdit).getText().toString());
         } catch (final NumberFormatException ex) {
-            port = Constants.DEFAULT_PORT;
+            port = MumbleURLParser.DEFAULT_PORT;
         }
 
         String username = (mUsernameEdit).getText().toString().trim();

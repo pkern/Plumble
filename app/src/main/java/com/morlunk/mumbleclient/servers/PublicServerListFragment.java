@@ -47,6 +47,7 @@ import android.widget.TextView;
 import android.widget.TextView.OnEditorActionListener;
 import android.widget.Toast;
 
+import com.morlunk.jumble.Constants;
 import com.morlunk.jumble.model.Server;
 import com.morlunk.mumbleclient.R;
 import com.morlunk.mumbleclient.Settings;
@@ -327,6 +328,9 @@ public class PublicServerListFragment extends Fragment implements OnItemClickLis
     @TargetApi(Build.VERSION_CODES.HONEYCOMB)
     private class MatchServerTask extends AsyncTask<String, Void, ServerInfoResponse> {
 
+        public final int PROTOCOL_VERSION =
+                (Constants.PROTOCOL_MAJOR << 16) | (Constants.PROTOCOL_MINOR << 8) | Constants.PROTOCOL_PATCH;
+
         /**
          * Query until we find up to SEARCH_RANGE empty servers that meet the zero user and location requirements.
          * Once we have that, then we'll sort them based on latency.
@@ -349,7 +353,7 @@ public class PublicServerListFragment extends Fragment implements OnItemClickLis
                 if(serverInfoResponse == null) {
                     // TODO handle bad responses
                 } else if(serverInfoResponse.getCurrentUsers() == 0 &&
-                        serverInfoResponse.getVersion() == com.morlunk.jumble.Constants.PROTOCOL_VERSION) {
+                        serverInfoResponse.getVersion() == PROTOCOL_VERSION) {
                     mGoodResponses.add(serverInfoResponse);
                 }
 

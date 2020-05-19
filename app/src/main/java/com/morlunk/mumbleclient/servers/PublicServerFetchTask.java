@@ -20,6 +20,7 @@ package com.morlunk.mumbleclient.servers;
 import android.os.AsyncTask;
 import android.util.Xml;
 
+import com.morlunk.jumble.Constants;
 import com.morlunk.mumbleclient.db.PublicServer;
 
 import org.xmlpull.v1.XmlPullParser;
@@ -39,6 +40,9 @@ import java.util.List;
  */
 class PublicServerFetchTask extends AsyncTask<Void, Void, List<PublicServer>> {
 
+    public static final String PROTOCOL_STRING =
+            Constants.PROTOCOL_MAJOR + "." + Constants.PROTOCOL_MINOR + "." + Constants.PROTOCOL_PATCH;
+
     private static final String MUMBLE_PUBLIC_URL = "http://mumble.info/list2.cgi";
 
     @Override
@@ -48,7 +52,7 @@ class PublicServerFetchTask extends AsyncTask<Void, Void, List<PublicServer>> {
             URL url = new URL(MUMBLE_PUBLIC_URL);
             HttpURLConnection connection = (HttpURLConnection) url.openConnection();
             connection.setRequestMethod("GET");
-            connection.addRequestProperty("version", com.morlunk.jumble.Constants.PROTOCOL_STRING);
+            connection.addRequestProperty("version", PROTOCOL_STRING);
             connection.connect();
             InputStream stream = connection.getInputStream();
 
