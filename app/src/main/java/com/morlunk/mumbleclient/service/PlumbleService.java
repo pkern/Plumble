@@ -414,6 +414,9 @@ public class PlumbleService extends JumbleService implements
                 changedExtras.putBoolean(EXTRAS_ENABLE_PREPROCESSOR,
                         mSettings.isPreprocessorEnabled());
                 break;
+            case Settings.PREF_RNNOISE_ENABLED:
+                changedExtras.putBoolean(EXTRAS_ENABLE_RNNOISE, mSettings.isRNNoiseEnabled());
+                break;
             case Settings.PREF_PTT_SOUND:
                 mPTTSoundEnabled = mSettings.isPttSoundEnabled();
                 break;

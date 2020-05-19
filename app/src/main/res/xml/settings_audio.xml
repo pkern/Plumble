@@ -121,6 +121,12 @@
             android:summary="@string/preprocessor_enabled_sum"
             android:defaultValue="true" />
 
+        <CheckBoxPreference
+            android:key="rnnoise_enabled"
+            android:title="@string/rnnoise_enabled"
+            android:summary="@string/rnnoise_enabled_sum"
+            android:defaultValue="true" />
+
         <!-- TODO: REIMPLEMENT -->
         <!--
         <ListPreference
